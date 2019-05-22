@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { createGlobalStyle } from "styled-components";
+import Container from 'components/Container/Container'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -14,7 +15,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyles />
       <>
-        // Content here
+        <Container />
       </>
     </BrowserRouter>
   );
