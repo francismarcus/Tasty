@@ -10,7 +10,7 @@ import {
   StyledLink,
   Img
 } from "components/layout/Navbar.styles";
-import Logo from 'components/layout/instagram.svg';
+import Logo from 'components/layout/hat.svg';
 
 export default function Navbar() {
   return (
@@ -18,7 +18,7 @@ export default function Navbar() {
       <NavHeader>
         <NavLeft>
           <StyledLink to='/'>
-            <Img src={Logo} /> | Tastygram 
+            <Img src={Logo} /> | Tasty
           </StyledLink>
         </NavLeft>
         <NavCenter />

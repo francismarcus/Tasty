@@ -68,11 +68,11 @@ const StyledLink = styled(Link)`
 `;
 
 const Img = styled.img`
-height: 3.5vmin;
-margin-bottom: -1vmin;
+height: 4vmin;
+margin-bottom: -1.4vmin;
 margin-right: 0.5vmin;
   @media (max-width: 812px) {
-    height: 5vmin;
+    height: 6vmin;
   }
 `
 export { Nav, NavHeader, NavLeft, NavCenter, NavRight, Input, MenuLink, StyledLink, Img };
