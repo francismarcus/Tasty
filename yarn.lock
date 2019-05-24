@@ -1106,6 +1106,16 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@marcusfrancis/usearray@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@marcusfrancis/usearray/-/usearray-1.1.0.tgz#ce6bd5b3416d0801becea29a1cf53b7da422d951"
+  integrity sha512-ngqpUeSwTYtDEs4r9JE93xdf1WZv52fyRIik6zzXv0a8vdEwNRqYh8xPyp6U3Oik4lW7ux/hlssgFH6zEi/fXw==
+
+"@marcusfrancis/useinput@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@marcusfrancis/useinput/-/useinput-1.1.0.tgz#451a13aca3d26021174690ad83d94621e4b7f3c6"
+  integrity sha512-a9OmA3dC/BFIRbUKGXyqvpSOsoRKVy5QcXemwE9CI7nQpZ0PlncivD+R9yT7T/vRDY1NtcL36DSRaIxlpoHAQw==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
