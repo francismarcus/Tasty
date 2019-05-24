@@ -1,8 +1,11 @@
 import React from 'react';
 import Navbar from 'components/layout/Navbar';
 import Feed from 'components/feed/Feed';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import RecipeDetails from 'components/recipes/RecipeDetails';
+import SignIn from 'components/auth/SignIn';
+import SignUp from 'components/auth/SignUp';
+import NewRecipe from 'components/recipes/NewRecipe';
 
 export default function Container() {
   return (
@@ -13,6 +16,12 @@ export default function Container() {
           exact="exact" path="/" component={Feed} />
         <Route 
           path="/recipe" component={RecipeDetails} />
+        <Route 
+          path="/signin" component={SignIn} />
+          <Route 
+          path="/signup" component={SignUp} />
+          <Route 
+            path="/new" component={NewRecipe} />
       </Switch>
     </>
   );
