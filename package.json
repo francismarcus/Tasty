@@ -5,6 +5,7 @@
   "dependencies": {
     "@marcusfrancis/usearray": "^1.1.0",
     "@marcusfrancis/useinput": "^1.1.0",
+    "firebase": "^6.0.4",
     "flow-bin": "^0.98.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
