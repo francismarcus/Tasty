@@ -42,6 +42,7 @@ const Img = styled.img`
   width: 100%;
   object-fit: cover;
   max-height: 310px;
+  min-height: 210px;
 `;
 
 const Description = styled.p`

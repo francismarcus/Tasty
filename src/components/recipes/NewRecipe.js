@@ -1,8 +1,8 @@
 import React from 'react'
-import useInput from '@marcusfrancis/useinput';
-import useArray from '@marcusfrancis/usearray';
 import { connect } from 'react-redux';
 import { createRecipe } from 'actions';
+import useInput from '@marcusfrancis/useinput';
+import useArray from '@marcusfrancis/usearray';
 
 import {
   Container,
@@ -24,6 +24,7 @@ function NewRecipe(props) {
     const instructions = useArray([]);
     const [instruction, updateInstruction, resetInstruction] = useInput('');
     const [description, updateDescription] = useInput('');
+    const [source, updateSource] = useInput('');
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -40,11 +41,9 @@ function NewRecipe(props) {
     const addRecipe = event => {
       let Ingredients = ingredients.value
       let Instructions = instructions.value;
-            props.createRecipe({Ingredients, Instructions, description});
+            props.createRecipe({Ingredients, Instructions, description, source});
     }
 
-
-    }
     return (
         <Container>
           <Form onSubmit={handleSubmit}>
@@ -88,6 +87,7 @@ function NewRecipe(props) {
             </CenterDiv>
           </ContentDiv>
           <Input placeholder="Description" value={description} onChange={updateDescription} />
+          <Input placeholder="Source" value={source} onChange={updateSource} />
           <button type="submit" onClick={addRecipe}>
               Add Recipe
             </button>
