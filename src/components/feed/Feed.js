@@ -2,8 +2,12 @@ import React from 'react';
 import { Container, ImageWrapper } from 'components/feed/Feed.styles';
 import Image from './Image.js';
 import { connect } from 'react-redux';
-
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { firestore } from 'Fire'
+   
 const Feed = ({ recipes }) => {
+    
   return (
     <Container>
       <ImageWrapper>
@@ -15,10 +19,16 @@ const Feed = ({ recipes }) => {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {  
   return { 
-    recipes: state.recipe.recipes
+    recipes: state.firestore.data.recipes 
   }
 }
 
-export default connect(mapStateToProps)(Feed);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'recipes' }
+   ])
+)(Feed);
+
