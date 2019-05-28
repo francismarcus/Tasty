@@ -21,7 +21,7 @@ const Feed = ({ recipes }) => {
 
 const mapStateToProps = state => {  
   return { 
-    recipes: state.firestore.data.recipes 
+    recipes: state.firestore.data.recipes ? state.firestore.ordered.recipes : [],
   }
 }
 
