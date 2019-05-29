@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import config from 'Fire';
+import 'index.css';
 
 const store = createStore(reducers,
   compose(
