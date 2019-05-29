@@ -36,46 +36,74 @@ const ContentDiv = styled.div`
   padding: 26px 0px;
   width: 100%;
   display: flex;
-  align-items: center;
-  margin: 0 auto;
+  margin: 0 0 0 0;
+
 `;
 
 const LeftDiv = styled.div`
   width: 38.3%;
+  height: auto;
   text-align: left;
   border: solid 1px #dbdbdb;
   border-radius: 3px;
+  margin: 0 0 0 0;
+
 `;
 
 const CenterDiv = styled.div`
   width: 61.7%;
   text-align: left;
+  margin-top: 50px;
   border: solid 1px #dbdbdb;
   border-radius: 3px;
 `;
 
-const url = 'https://scontent-arn2-1.cdninstagram.com/vp/96f3908264d58b31f2524ec5b19c0ec6/5D5CF535/t51.2885-15/e35/27579097_963359183815106_5284594741013381120_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com'
-   
+const UL = styled.ul `
+padding-bottom: 20px;
+font-size: 14px;
+`
+const OL = styled.ol `
+font-size: 14px;
+`
 
-export default function RecipeDetails() {
+
+const RecipeDetails = props => {
+  const item = props.location.state.item
+  console.log(item)
+
+
+
+  const renderInstructions = item.Instructions.map((i) => {
+    return <li> {i} </li>
+  })
+
+  const renderIngredients =  item.Ingredients.map((i) => { 
+    return <li> {i} </li>
+  })
     return (
         <div>
             <Container>
                 <ImageWrapper>
                 <ImgContainer>
-                <Img src={url} />
+                <Img src={item.source} />
                 </ImgContainer>
-                <p> Title of the recipe </p>
+                <p> {item.description}</p>
                 </ImageWrapper>  
                 <ContentDiv>
                 <LeftDiv>
-                    Ingridient list
+                   
+                <ul> {renderIngredients}</ul> 
+
                 </LeftDiv>  
                 <CenterDiv>
-                    Instructions
+                    
+                     <ol> {renderInstructions} </ol>
+                    
                 </CenterDiv>
                 </ContentDiv>
             </Container>
         </div>
     )
 }
+
+export default RecipeDetails

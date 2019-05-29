@@ -9,15 +9,19 @@ import {
 
 import { StyledLink } from 'components/layout/Navbar.styles';
 
-export default function Image({ image }) {
+export default function Image({ item }) {
   return (
     
     <ImgContainer>
-    <StyledLink to={'/recipe/' + image.id} key={image.id}>
-      <Img src={image.source} />
+    <StyledLink to={{
+      pathname: '/recipe/ + item.id', 
+      state: {
+        item
+            }}}  key={item.id}>
+      <Img src={item.source} />
       <ImgMeta>
         <ImgContent>
-          <Description> {image.description} </Description>
+          <Description> {item.description} </Description>
         </ImgContent>
       </ImgMeta>
       </StyledLink>

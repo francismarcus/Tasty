@@ -10,7 +10,7 @@ const Feed = ({ recipes }) => {
     <Container>
       <ImageWrapper>
         {recipes.map(item => (
-          <Image image={item} key={item.id} />
+          <Image item={item} key={item.id} />
         ))}
       </ImageWrapper>
     </Container>
