@@ -15,7 +15,7 @@ export default function Container() {
         <Route 
           exact="exact" path="/" component={Feed} />
         <Route 
-          path="/recipe" component={RecipeDetails} />
+          path='/recipe/:id' component={RecipeDetails} />
         <Route 
           path="/signin" component={SignIn} />
           <Route 
