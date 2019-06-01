@@ -112,7 +112,7 @@ const RecipeDetails = props => {
 const mapStateToProps = (state, props) => {  
   const id = props.match.params.id
   const recipes = state.firestore.data.recipes
-  const recipe = recipes ? recipes[id] : []
+  const recipe = recipes ? recipes[id] : {Ingredients: [], Instructions: []}
   return { 
     recipe: recipe
   }
