@@ -13,11 +13,7 @@ export default function Image({ item }) {
   return (
     
     <ImgContainer>
-    <StyledLink to={{
-      pathname: '/recipe/ + item.id', 
-      state: {
-        item
-            }}}  key={item.id}>
+    <StyledLink to={'/recipe/' + item.id} key={item.id}>
       <Img src={item.source} />
       <ImgMeta>
         <ImgContent>

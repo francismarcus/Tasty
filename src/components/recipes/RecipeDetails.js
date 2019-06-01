@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
-// image styles
 
 const Container = styled.div`
   max-width: 1010px;
@@ -68,26 +70,27 @@ font-size: 14px;
 
 
 const RecipeDetails = props => {
-  const item = props.location.state.item
-  console.log(item)
+  console.log(props)
+  const recipe = props.recipe;
 
 
 
-  const renderInstructions = item.Instructions.map((i) => {
+  const renderInstructions = recipe.Instructions.map((i) => {
     return <li> {i} </li>
   })
 
-  const renderIngredients =  item.Ingredients.map((i) => { 
-    return <li> {i} </li>
+  const renderIngredients = recipe.Ingredients.map((i) => { 
+    return <li> {i} </li> 
   })
+
     return (
         <div>
             <Container>
                 <ImageWrapper>
                 <ImgContainer>
-                <Img src={item.source} />
+                <Img src={recipe.source} />
                 </ImgContainer>
-                <p> {item.description}</p>
+                <p> {recipe.description} </p>
                 </ImageWrapper>  
                 <ContentDiv>
                 <LeftDiv>
@@ -106,4 +109,18 @@ const RecipeDetails = props => {
     )
 }
 
-export default RecipeDetails
+const mapStateToProps = (state, props) => {  
+  const id = props.match.params.id
+  const recipes = state.firestore.data.recipes
+  const recipe = recipes ? recipes[id] : []
+  return { 
+    recipe: recipe
+  }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'recipes' }
+   ])
+)(RecipeDetails);
