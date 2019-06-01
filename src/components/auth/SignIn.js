@@ -1,6 +1,8 @@
 import React from 'react'
 import useInput from '@marcusfrancis/useinput';
 import styled from 'styled-components';
+import { connect } from 'react-redux'
+import { login } from 'actions';
 
 const Container = styled.div`
   max-width: 1010px;
@@ -30,13 +32,43 @@ const Input = styled.input`
   }
 `;
 
-export default function SignIn() {
+const SignIn = (props) => {
+    const [email, changeEmail, resetEmail] = useInput('');
+    const [password, changePassword, resetPassword] = useInput('');
+    
+    const handleSubmit = event => {
+        event.preventDefault();
+        props.login(email, password);
+        resetEmail();
+        resetPassword();
+    }
+
+    
     return (
         <Container>
             <form>
-                <Input />
-                <Input />
+            <Input
+          type="text"
+          placeholder="email"
+          value={email}
+          onChange={changeEmail}
+        />
+        <Input
+          type="text"
+          placeholder="password"
+          value={password}
+          onChange={changePassword}
+        />
+        <button onClick={handleSubmit}> Submit</button>
             </form>
         </Container>
     )
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+      login: (email, password) => dispatch(login(email, password))
+    }
+  }
+  
+  export default connect(null, mapDispatchToProps)(SignIn)
