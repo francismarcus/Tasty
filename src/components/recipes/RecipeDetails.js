@@ -99,7 +99,7 @@ const RecipeDetails = props => {
 
                 </LeftDiv>  
                 <CenterDiv>
-                    
+                                     
                      <ol> {renderInstructions} </ol>
                     
                 </CenterDiv>
