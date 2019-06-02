@@ -73,6 +73,27 @@ const Text = styled.textarea `
   text-align: center;
   background: #fafafa;`
 
+  const ImageWrapper = styled.div`
+  display: inline;
+  text-align: center;
+`;
+
+const ImgContainer = styled.div`
+  flex-basis: 100%;
+  flex-basis: calc(50% - 20px);
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.5s all ease-in;
+`;
+
+const Img = styled.img`
+  cursor: pointer;
+  width: 50vh;
+  max-height: 50vh;
+  object-fit: cover;
+`;
+
+
 export {
     Container,
     Input,
@@ -82,5 +103,8 @@ export {
     OL,
     CenterDiv,
     Form,
-    Text
+    Text,
+    ImageWrapper,
+    ImgContainer,
+    Img
 }
