@@ -5,20 +5,20 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
-const Feed = ({ recipes }) => {
+export const Feed = ({ recipes }) => {
   return (
-    <Container>
+    <Container test="Container for images">
       <ImageWrapper>
         {recipes.map(item => (
-          <Image item={item} key={item.id} />
+          <Image item={item} key={item.id} test="recipe"/>
         ))}
       </ImageWrapper>
     </Container>
   );
 }
 
-const mapStateToProps = state => {  
-  return { 
+const mapStateToProps = state => {
+  return {
     recipes: state.firestore.data.recipes ? state.firestore.ordered.recipes : [],
   }
 }
@@ -29,4 +29,3 @@ export default compose(
     { collection: 'recipes' }
    ])
 )(Feed);
-

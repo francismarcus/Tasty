@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test --env=jsdom --transformIgnorePatterns \"node_modules/(?!(react-redux))/\"",
     "eject": "react-scripts eject",
     "flow": "flow"
   },
@@ -41,6 +41,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
     "jest": "24.7.1",

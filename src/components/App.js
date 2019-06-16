@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
 function App() {
   return (
     <BrowserRouter>
-      <GlobalStyles />
+      <GlobalStyles test="GlobalStyles" />
       <>
         <Container />
       </>
