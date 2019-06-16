@@ -1,24 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'components/App';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { Provider } from 'react-redux';
-import reducers from 'reducers';
-import thunk from 'redux-thunk';
-import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import config from 'Fire';
 import 'index.css';
+import Provider from 'Provider';
 
-const store = createStore(reducers,
-  compose(
-   applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
-   reduxFirestore(config),
-   reactReduxFirebase(config)
-  )
-);
+
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider>
       <App />
     </Provider>,
     document.getElementById('root')
