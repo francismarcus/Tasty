@@ -8,13 +8,37 @@ const Container = styled.div `
   text-align: center;
 `;
 
+const GridTemplate = styled.div`
+display: grid;
+grid-template-columns: repeat(2, minmax(250px, 1fr));
+grid-gap: 25px;
+justify-content: space-evenly;
+`
 const Input = styled.input `
-  font-size: 12px;
   border: solid 1px #dbdbdb;
   border-radius: 3px;
   color: #262626;
-  padding: 7px 33px;
+  color: #999;
+  cursor: text;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  background: #fafafa;
+  height: 100%;
+  width: 100%;
+
+  &:active,
+  &:focus {
+    text-align: left;
+  }
+`;
+
+const SmallInput = styled.input `
+  border: solid 1px #dbdbdb;
+  width: 50%;
+  height: 50%;
   border-radius: 3px;
+  color: #262626;
   color: #999;
   cursor: text;
   font-size: 14px;
@@ -34,10 +58,14 @@ const ContentDiv = styled.div `
   display: flex;
   align-items: center;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  grid-gap: 50px;
+  justify-content: space-evenly;
 `;
 
 const LeftDiv = styled.div `
-  width: 38.3%;
+  width: 100%;
   text-align: left;
   border: solid 1px #dbdbdb;
   border-radius: 3px;
@@ -51,13 +79,14 @@ const OL = styled.ol `
 font-size: 14px;
 `
 const CenterDiv = styled.div `
-  width: 61.7%;
+  width: 100%%;
   text-align: left;
   border: solid 1px #dbdbdb;
 border-radius: 3px;
 `;
 const Form = styled.form `
 margin-bottom: 25px;
+height: 3vh;
 `
 const Text = styled.textarea `
   font-size: 12px;
@@ -95,8 +124,10 @@ const Img = styled.img`
 
 
 export {
+    GridTemplate,
     Container,
     Input,
+    SmallInput,
     ContentDiv,
     LeftDiv,
     UL,

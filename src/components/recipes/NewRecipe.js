@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createRecipe } from "actions";
 import useInput from "@marcusfrancis/useinput";
 import useArray from "@marcusfrancis/usearray";
+import { Redirect } from 'react-router-dom'
 
 import {
   Container,
@@ -16,7 +17,9 @@ import {
   Text,
   ImageWrapper,
   ImgContainer,
-  Img
+  Img,
+  GridTemplate,
+  SmallInput
 } from "components/recipes/NewRecipe.styles";
 
 function NewRecipe(props) {
@@ -28,13 +31,13 @@ function NewRecipe(props) {
   const [description, updateDescription] = useInput("");
   const [source, updateSource] = useInput("");
 
-  const handleSubmit = event => {
+  const handleIngredientSubmit = event => {
     event.preventDefault();
     ingredients.add(ingredient);
     resetIngredient();
   };
 
-  const handleText = event => {
+  const handleInstructionSubmit = event => {
     event.preventDefault();
     instructions.add(instruction);
     resetInstruction();
@@ -44,7 +47,10 @@ function NewRecipe(props) {
     let Ingredients = ingredients.value;
     let Instructions = instructions.value;
     props.createRecipe({ Ingredients, Instructions, description, source });
+    props.history.push('/')
   };
+
+//  if (!props.auth.uid) return <Redirect to='/signin' />
 
   return (
     <Container>
@@ -52,19 +58,37 @@ function NewRecipe(props) {
         <ImgContainer>
           <Img src={source} />
         </ImgContainer>
-        <Form onSubmit={handleSubmit}>
+      </ImageWrapper>
+
+      <GridTemplate>
+
+
+
+        <Form onSubmit={handleIngredientSubmit}>
           <Input value={ingredient} onChange={updateIngredient} />
-          <button type="submit" onClick={handleSubmit}>
+          <button type="submit" onClick={handleIngredientSubmit}>
             Add Ingredient
           </button>
         </Form>
-      </ImageWrapper>
-      <Form onSubmit={handleSubmit}>
+
+        <SmallInput placeholder="Source"
+          value={source}
+          onChange={updateSource} />
+
+        <Form onSubmit={handleInstructionSubmit}>
         <Input value={instruction} onChange={updateInstruction} />
-        <button type="submit" onClick={handleText}>
+        <button type="submit" onClick={handleInstructionSubmit}>
           Add Instruction
         </button>
       </Form>
+
+      <SmallInput
+        placeholder="Description"
+        value={description}
+        onChange={updateDescription} />
+
+      </GridTemplate>
+
       <ContentDiv>
         <LeftDiv>
           <ul>
@@ -82,6 +106,7 @@ function NewRecipe(props) {
             ))}{" "}
           </ul>
         </LeftDiv>
+
         <CenterDiv>
           <ol>
             {" "}
@@ -99,12 +124,9 @@ function NewRecipe(props) {
           </ol>
         </CenterDiv>
       </ContentDiv>
-      <Input
-        placeholder="Description"
-        value={description}
-        onChange={updateDescription}
-      />
-      <Input placeholder="Source" value={source} onChange={updateSource} />
+
+
+
       <button type="submit" onClick={addRecipe}>
         Add Recipe
       </button>
@@ -118,7 +140,11 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const mapStateToProps = state => {
+  return { auth: state.firebase.auth }
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(NewRecipe);
