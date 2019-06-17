@@ -14,6 +14,7 @@ import Logo from 'components/layout/hat.svg';
 import plus from 'components/layout/plus.svg';
 
 // TODO: Alter nav links on auth status
+// TODO: Add profile icon and create a profile component
 // <MenuLink href="#">signin</MenuLink>
 // <MenuLink href="#">signup</MenuLink>
 export default function Navbar() {

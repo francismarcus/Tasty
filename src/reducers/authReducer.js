@@ -1,6 +1,10 @@
-
 const authReducer = (state = {}, action) => {
-    return state;
+  switch (action.type) {
+    case 'SET_USER':
+      return state, action.payload;
+    default:
+      return state;
+  }
 };
 
 export default authReducer;

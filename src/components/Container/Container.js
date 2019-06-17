@@ -6,22 +6,26 @@ import RecipeDetails from 'components/recipes/RecipeDetails';
 import SignIn from 'components/auth/SignIn';
 import SignUp from 'components/auth/SignUp';
 import NewRecipe from 'components/recipes/NewRecipe';
+import GoogleLogin from 'components/auth/GoogleLogin';
 
 export default function Container() {
+
   return (
     <>
       <Navbar />
       <Switch>
-        <Route 
+        <Route
           exact="exact" path="/" component={Feed} />
-        <Route 
+        <Route
           path='/recipe/:id' component={RecipeDetails} />
-        <Route 
+        <Route
           path="/signin" component={SignIn} />
-          <Route 
-          path="/signup" component={SignUp} />
-          <Route 
-            path="/new" component={NewRecipe} />
+        <Route
+        path="/signinwithgoogle" component={GoogleLogin} />
+        <Route
+        path="/signup" component={SignUp} />
+        <Route
+          path="/new" component={NewRecipe} />
       </Switch>
     </>
   );

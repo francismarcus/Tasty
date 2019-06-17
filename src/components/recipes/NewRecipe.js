@@ -50,7 +50,7 @@ function NewRecipe(props) {
     props.history.push('/')
   };
 
-//  if (!props.auth.uid) return <Redirect to='/signin' />
+  if (!props.auth.uid) return <Redirect to='/signinwithgoogle' />
 
   return (
     <Container>
@@ -141,7 +141,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = state => {
-  return { auth: state.firebase.auth }
+  return { auth: state.auth }
 }
 
 export default connect(
