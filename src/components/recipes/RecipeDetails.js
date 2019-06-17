@@ -70,17 +70,14 @@ font-size: 14px;
 
 
 const RecipeDetails = props => {
-  console.log(props)
   const recipe = props.recipe;
-
-
 
   const renderInstructions = recipe.Instructions.map((i) => {
     return <li> {i} </li>
   })
 
-  const renderIngredients = recipe.Ingredients.map((i) => { 
-    return <li> {i} </li> 
+  const renderIngredients = recipe.Ingredients.map((i) => {
+    return <li> {i} </li>
   })
 
     return (
@@ -91,17 +88,17 @@ const RecipeDetails = props => {
                 <Img src={recipe.source} />
                 </ImgContainer>
                 <p> {recipe.description} </p>
-                </ImageWrapper>  
+                </ImageWrapper>
                 <ContentDiv>
                 <LeftDiv>
-                   
-                <ul> {renderIngredients}</ul> 
 
-                </LeftDiv>  
+                <ul> {renderIngredients}</ul>
+
+                </LeftDiv>
                 <CenterDiv>
-                                     
+
                      <ol> {renderInstructions} </ol>
-                    
+
                 </CenterDiv>
                 </ContentDiv>
             </Container>
@@ -109,11 +106,11 @@ const RecipeDetails = props => {
     )
 }
 
-const mapStateToProps = (state, props) => {  
+const mapStateToProps = (state, props) => {
   const id = props.match.params.id
   const recipes = state.firestore.data.recipes
   const recipe = recipes ? recipes[id] : {Ingredients: [], Instructions: []}
-  return { 
+  return {
     recipe: recipe
   }
 }
